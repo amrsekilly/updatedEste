@@ -23,11 +23,6 @@ class Header extends Component {
         </h1>
         <ul>
           <li>
-            <Link activeClassName="active" to="/firebase">
-              <FormattedMessage {...linksMessages.firebase} />
-            </Link>
-          </li>
-          <li>
             <Link activeClassName="active" to="/todos">
               <FormattedMessage {...linksMessages.todos} />
             </Link>

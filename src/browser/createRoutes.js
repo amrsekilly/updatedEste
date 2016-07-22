@@ -1,6 +1,5 @@
 import App from './app/App.react';
 import Fields from './fields/FieldsPage.react';
-import Firebase from './firebase/FirebasePage.react';
 import Home from './home/HomePage.react';
 import Intl from './intl/IntlPage.react';
 import Me from './me/MePage.react';
@@ -26,7 +25,6 @@ export default function createRoutes(getState) {
     <Route component={App} path="/">
       <IndexRoute component={Home} />
       <Route component={Fields} path="fields" />
-      <Route component={Firebase} path="firebase" />
       <Route component={Intl} path="intl" />
       <Route component={Me} onEnter={requireViewer} path="me">
         <Route component={Profile} path="profile" />
