@@ -38,12 +38,14 @@ export class Todos extends Component {
           {
             if (todo.status !== 'delete')
             {
-              <Todo
-                deleteTodo={deleteTodo}
-                todo={todo}
-                toggleTodoCompleted={toggleTodoCompleted}
-                key={todo.id}
-              />
+              return (
+                <Todo
+                  deleteTodo={deleteTodo}
+                  todo={todo}
+                  toggleTodoCompleted={toggleTodoCompleted}
+                  key={todo.id}
+                />
+              );
             }
           }
         )}

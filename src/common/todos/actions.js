@@ -48,7 +48,7 @@ export function clearAllTodos() {
   };
 }
 
-export function deleteTodo(id) {
+export function deleteTodo(todo) {
   return {
     type: DELETE_TODO,
     payload: { todo }
