@@ -1,4 +1,5 @@
 import Buttons from './Buttons.react';
+import Filter from './Filter.react';
 import Component from 'react-pure-render/component';
 import Helmet from 'react-helmet';
 import NewTodo from './NewTodo.react';
@@ -23,6 +24,7 @@ class TodosPage extends Component {
         <NewTodo />
         <Todos />
         <Buttons />
+        <Filter />
       </div>
     );
   }

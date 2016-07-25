@@ -6,6 +6,10 @@ export const CLEAR_ALL_COMPLETED_TODOS = 'CLEAR_ALL_COMPLETED_TODOS';
 export const CLEAR_ALL_TODOS = 'CLEAR_ALL_TODOS';
 export const DELETE_TODO = 'DELETE_TODO';
 export const TOGGLE_TODO_COMPLETED = 'TOGGLE_TODO_COMPLETED';
+export const SHOW_ALL_TODOS = 'SHOW_ALL_TODOS';
+export const SHOW_ACTIVE_TODOS = 'SHOW_ACTIVE_TODOS';
+export const SHOW_COMPLETED_TODOS = 'SHOW_COMPLETED_TODOS';
+export const SHOW_REMOVED_TODOS = 'SHOW_REMOVED_TODOS';
 
 export function addHundredTodos() {
   // Note how dependency injection ensures pure action.
@@ -45,6 +49,31 @@ export function clearAllCompletedTodos() {
 export function clearAllTodos() {
   return {
     type: CLEAR_ALL_TODOS
+  };
+}
+
+// showAll, showActive, showCompleted, showRemoved
+export function showAll() {
+  return {
+    type: SHOW_ALL_TODOS
+  };
+}
+
+export function showActive() {
+  return {
+    type: SHOW_ACTIVE_TODOS
+  };
+}
+
+export function showCompleted() {
+  return {
+    type: SHOW_COMPLETED_TODOS
+  };
+}
+
+export function showRemoved() {
+  return {
+    type: SHOW_REMOVED_TODOS
   };
 }
 

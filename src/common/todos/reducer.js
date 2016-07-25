@@ -10,6 +10,19 @@ const InitialState = Record({
 export default function todosReducer(state = new InitialState, action) {
   switch (action.type) {
 
+    case actions.SHOW_ALL_TODOS: {
+      return state.update('map', map => map.filter(todo => todo.status));
+    }
+    case actions.SHOW_ACTIVE_TODOS: {
+      return state.update('map', map => map.filter(todo => todo.status === 'todo'));
+    }
+    case actions.SHOW_COMPLETED_TODOS: {
+      return state.update('map', map => map.filter(todo => todo.status === 'complete'));
+    }
+    case actions.SHOW_REMOVED_TODOS: {
+      return state.update('map', map => map.filter(todo => todo.status === 'delete'));
+    }
+
     case actions.ADD_HUNDRED_TODOS: {
       const todos = action.payload.reduce((todos, json) =>
         todos.set(json.id, new Todo(json))
