@@ -1,39 +1,36 @@
 import Component from 'react-pure-render/component';
 import React, { PropTypes } from 'react';
-import { showAll, showActive, showCompleted, showRemoved } from '../../common/todos/actions';
+import { updateFilter } from '../../common/todos/actions';
 import { connect } from 'react-redux';
 
 class Filter extends Component {
 
   static propTypes = {
-    showAll: PropTypes.func.isRequired,
-    showActive: PropTypes.func.isRequired,
-    showCompleted: PropTypes.func.isRequired,
-    showRemoved: PropTypes.func.isRequired
+    updateFilter: PropTypes.func.isRequired
   };
 
   render() {
-    const { showAll, showActive, showCompleted, showRemoved, todos } = this.props;
+    const { updateFilter } = this.props;
 
     return (
       <div>
         <a
-        onClick={showAll}>
+        onClick={ updateFilter.bind(this, 1) }>
           All
         </a>
         {' '}
         <a
-        onClick={showActive}>
+        onClick={ updateFilter.bind(this, 2) }>
           Active
         </a>
         {' '}
         <a
-        onClick={showCompleted}>
+        onClick={ updateFilter.bind(this, 3) }>
           Completed
         </a>
         {' '}
         <a
-        onClick={showRemoved}>
+        onClick={ updateFilter.bind(this, 4) }>
           Removed
         </a>
       </div>
@@ -43,5 +40,5 @@ class Filter extends Component {
 }
 
 export default connect(state => ({
-  todos: state.todos.map
-}), { showAll, showActive, showCompleted, showRemoved })(Filter);
+  activeFilter: state.activeFilter
+}), { updateFilter })(Filter);

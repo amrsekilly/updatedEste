@@ -5,6 +5,7 @@ import todosMessages from '../../common/todos/todosMessages';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { deleteTodo, toggleTodoCompleted } from '../../common/todos/actions';
+import { selectedFilter } from '../../common/todos/reducer';
 
 // Container component.
 export class Todos extends Component {
@@ -12,7 +13,7 @@ export class Todos extends Component {
   static propTypes = {
     deleteTodo: PropTypes.func.isRequired,
     todos: PropTypes.object.isRequired,
-    toggleTodoCompleted: PropTypes.func.isRequired
+    toggleTodoCompleted: PropTypes.func.isRequired,
   };
 
   // // Check render performance.
@@ -24,7 +25,7 @@ export class Todos extends Component {
   // }
 
   render() {
-    const { deleteTodo, todos, toggleTodoCompleted } = this.props;
+    const { deleteTodo, todos, toggleTodoCompleted, selectedFilter } = this.props;
 
     if (!todos.size) {
       return <p><FormattedMessage {...todosMessages.empty} /></p>;
@@ -34,7 +35,8 @@ export class Todos extends Component {
 
     return (
       <ol className="todos">
-        {list.map((todo) =>
+        {
+          list.map((todo) =>
           {
             if (todo.status !== 'delete')
             {
@@ -48,7 +50,8 @@ export class Todos extends Component {
               );
             }
           }
-        )}
+        )
+      }
       </ol>
     );
   }
