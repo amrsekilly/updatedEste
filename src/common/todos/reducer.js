@@ -31,13 +31,24 @@ export default function todosReducer(state = new InitialState, action) {
     }
 
     case actions.DELETE_TODO: {
-      const { id } = action.payload;
-      return state.update('map', map => map.delete(id));
+      const { todo } = action.payload;
+      return state.updateIn(['map', todo.id, 'status'], value => 'delete');
     }
 
     case actions.TOGGLE_TODO_COMPLETED: {
       const { todo } = action.payload;
-      return state.updateIn(['map', todo.id, 'completed'], value => !value);
+      return state.updateIn(['map', todo.id, 'status'], value => {
+        switch (value) {
+          case 'todo':
+            return 'complete'
+            break;
+          case 'complete':
+            return 'todo'
+            break;
+          default:
+            return 'todo'
+        }
+      });
     }
 
   }

@@ -20,7 +20,7 @@ export default class Todo extends Component {
 
   onButtonClick() {
     const { deleteTodo, todo } = this.props;
-    deleteTodo(todo.id);
+    deleteTodo(todo);
   }
 
   onTitleClick() {
@@ -34,7 +34,7 @@ export default class Todo extends Component {
     return (
       <li className="todo">
         <span
-          className={cx('view', { completed: todo.completed })}
+          className={cx('view', { completed: todo.status === 'complete'})}
           onClick={this.onTitleClick}
         >{todo.title}</span>
         <span

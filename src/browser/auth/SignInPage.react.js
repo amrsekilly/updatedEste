@@ -24,7 +24,6 @@ export default class SignInPage extends Component {
           <a href="https://www.firebase.com/" target="_blank">
             <img
               role="presentation"
-              src={require('../firebase/logo.png')}
               style={{ height: 27, width: 140 }}
             />
           </a>

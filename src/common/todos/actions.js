@@ -51,7 +51,7 @@ export function clearAllTodos() {
 export function deleteTodo(id) {
   return {
     type: DELETE_TODO,
-    payload: { id }
+    payload: { todo }
   };
 }
 

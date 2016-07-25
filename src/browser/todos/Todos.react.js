@@ -34,13 +34,18 @@ export class Todos extends Component {
 
     return (
       <ol className="todos">
-        {list.map(todo =>
-          <Todo
-            deleteTodo={deleteTodo}
-            todo={todo}
-            toggleTodoCompleted={toggleTodoCompleted}
-            key={todo.id}
-          />
+        {list.map((todo) =>
+          {
+            if (todo.status !== 'delete')
+            {
+              <Todo
+                deleteTodo={deleteTodo}
+                todo={todo}
+                toggleTodoCompleted={toggleTodoCompleted}
+                key={todo.id}
+              />
+            }
+          }
         )}
       </ol>
     );
