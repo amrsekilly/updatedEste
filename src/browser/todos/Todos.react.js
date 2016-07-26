@@ -5,7 +5,6 @@ import todosMessages from '../../common/todos/todosMessages';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { deleteTodo, toggleTodoCompleted } from '../../common/todos/actions';
-import { selectedFilter } from '../../common/todos/reducer';
 
 // Container component.
 export class Todos extends Component {
@@ -16,16 +15,8 @@ export class Todos extends Component {
     toggleTodoCompleted: PropTypes.func.isRequired,
   };
 
-  // // Check render performance.
-  // componentWillUpdate() {
-  //   this.start = Date.now();
-  // }
-  // componentDidUpdate() {
-  //   console.log(`[ESTE] Todos updated in ${Date.now() - this.start}ms`);
-  // }
-
   render() {
-    const { deleteTodo, todos, toggleTodoCompleted, selectedFilter } = this.props;
+    const { deleteTodo, todos, toggleTodoCompleted } = this.props;
 
     if (!todos.size) {
       return <p><FormattedMessage {...todosMessages.empty} /></p>;
@@ -36,7 +27,7 @@ export class Todos extends Component {
     return (
       <ol className="todos">
         {
-          list.map((todo) =>
+          list.map(todo =>
           {
             if (todo.status !== 'delete')
             {

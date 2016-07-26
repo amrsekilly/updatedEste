@@ -1,7 +1,7 @@
 import { Record } from '../transit';
 
 const Todo = Record({
-  status: 'todo', 
+  status: 'todo',
   createdAt: null,
   id: '',
   title: ''

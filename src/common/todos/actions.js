@@ -53,7 +53,7 @@ export function clearAllTodos() {
 export function updateFilter(index) {
   return {
     type: UPDATE_FILTER,
-    index
+    index,
   };
 }
 

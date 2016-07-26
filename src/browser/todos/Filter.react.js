@@ -15,22 +15,22 @@ class Filter extends Component {
     return (
       <div>
         <a
-        onClick={ updateFilter.bind(this, 1) }>
+        onClick={ updateFilter.bind(this, "") }>
           All
         </a>
         {' '}
         <a
-        onClick={ updateFilter.bind(this, 2) }>
+        onClick={ updateFilter.bind(this, "todo") }>
           Active
         </a>
         {' '}
         <a
-        onClick={ updateFilter.bind(this, 3) }>
+        onClick={ updateFilter.bind(this, "complete") }>
           Completed
         </a>
         {' '}
         <a
-        onClick={ updateFilter.bind(this, 4) }>
+        onClick={ updateFilter.bind(this, "remove") }>
           Removed
         </a>
       </div>
