@@ -22,7 +22,11 @@ export class Todos extends Component {
       return <p><FormattedMessage {...todosMessages.empty} /></p>;
     }
 
-    const list = todos.toList().sortBy(item => item.createdAt).reverse().filter(item => filter.get('selectedFilter') === null? item : item.status === filter.get('selectedFilter'));
+    var selectedFilter = filter.get('selectedFilter');
+
+    const list = todos.toList().sortBy(item => item.createdAt).reverse().filter(item => selectedFilter === null? item : item.status === selectedFilter);
+
+
 
     return (
       <ol className="todos">
@@ -37,6 +41,7 @@ export class Todos extends Component {
                   todo={todo}
                   toggleTodoCompleted={toggleTodoCompleted}
                   key={todo.id}
+                  selectedFilter={selectedFilter}
                 />
               );
             }
