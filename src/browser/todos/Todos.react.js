@@ -33,7 +33,7 @@ export class Todos extends Component {
         {
           list.map(todo =>
           {
-            if (todo.status !== 'delete')
+            if (todo.status !== 'delete' || selectedFilter === 'delete')
             {
               return (
                 <Todo
