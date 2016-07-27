@@ -22,7 +22,7 @@ export class Todos extends Component {
       return <p><FormattedMessage {...todosMessages.empty} /></p>;
     }
 
-    const list = todos.toList().sortBy(item => item.createdAt).reverse().filter(item =>item.status === filter.get('selectedFilter'));
+    const list = todos.toList().sortBy(item => item.createdAt).reverse().filter(item => filter.get('selectedFilter') === null? item : item.status === filter.get('selectedFilter'));
 
     return (
       <ol className="todos">

@@ -15,7 +15,7 @@ class Filter extends Component {
     return (
       <div>
         <a
-        onClick={ updateFilter.bind(this, "") }>
+        onClick={ updateFilter.bind(this, null) }>
           All
         </a>
         {' '}
@@ -30,7 +30,7 @@ class Filter extends Component {
         </a>
         {' '}
         <a
-        onClick={ updateFilter.bind(this, "remove") }>
+        onClick={ updateFilter.bind(this, "delete") }>
           Removed
         </a>
       </div>
