@@ -12,17 +12,17 @@ export class Todos extends Component {
   static propTypes = {
     deleteTodo: PropTypes.func.isRequired,
     todos: PropTypes.object.isRequired,
-    toggleTodoCompleted: PropTypes.func.isRequired,
+    filter: PropTypes.object.isRequired
   };
 
   render() {
-    const { deleteTodo, todos, toggleTodoCompleted } = this.props;
+    const { deleteTodo, todos, toggleTodoCompleted, filter } = this.props;
 
     if (!todos.size) {
       return <p><FormattedMessage {...todosMessages.empty} /></p>;
     }
 
-    const list = todos.toList().sortBy(item => item.createdAt).reverse();
+    const list = todos.toList().sortBy(item => item.createdAt).reverse().filter(item =>item.status !== filter.toList().map(filter => filter));
 
     return (
       <ol className="todos">
@@ -50,5 +50,6 @@ export class Todos extends Component {
 }
 
 export default connect(state => ({
-  todos: state.todos.map
+  todos: state.todos.map,
+  filter: state.filter.map
 }), { deleteTodo, toggleTodoCompleted })(Todos);

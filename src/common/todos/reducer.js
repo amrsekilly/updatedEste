@@ -4,16 +4,11 @@ import { Map } from 'immutable';
 import { Record } from '../transit';
 
 const InitialState = Record({
-  map: Map()
+  map: Map(),
 }, 'todos');
 
 export default function todosReducer(state = new InitialState, action) {
   switch (action.type) {
-
-    case actions.UPDATE_FILTER: {
-      console.log(action.index);
-      return state;
-    }
 
     case actions.ADD_HUNDRED_TODOS: {
       const todos = action.payload.reduce((todos, json) =>

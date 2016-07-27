@@ -10,7 +10,7 @@ class Filter extends Component {
   };
 
   render() {
-    const { updateFilter } = this.props;
+    const { updateFilter, activeFilter } = this.props;
 
     return (
       <div>
