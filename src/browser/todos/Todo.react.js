@@ -34,7 +34,7 @@ export default class Todo extends Component {
     return (
       <li className="todo">
         <span
-          className={cx('view', { completed: (todo.status && ( (selectedFilter !== 'complete') ||  (selectedFilter !== null) ) ) === 'complete'})}
+          className={cx('view', { completed: selectedFilter !== 'complete'  && todo.status === 'complete'})}
           onClick={this.onTitleClick}
         >{todo.title}</span>
         <span
