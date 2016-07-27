@@ -15,7 +15,7 @@ class Filter extends Component {
     return (
       <div>
         <a
-        onClick={ updateFilter.bind(this, null) }>
+        onClick={ updateFilter.bind(this, "") }>
           All
         </a>
         {' '}

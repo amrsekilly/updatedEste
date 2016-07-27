@@ -49,14 +49,6 @@ export function clearAllTodos() {
   };
 }
 
-// showAll, showActive, showCompleted, showRemoved
-export function updateFilter(index) {
-  return {
-    type: UPDATE_FILTER,
-    index,
-  };
-}
-
 export function deleteTodo(todo) {
   return {
     type: DELETE_TODO,
@@ -68,5 +60,12 @@ export function toggleTodoCompleted(todo) {
   return {
     type: TOGGLE_TODO_COMPLETED,
     payload: { todo }
+  };
+}
+
+export function updateFilter(index) {
+  return {
+    type: UPDATE_FILTER,
+    index,
   };
 }

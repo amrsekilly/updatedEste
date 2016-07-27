@@ -11,29 +11,26 @@ export class Todos extends Component {
 
   static propTypes = {
     deleteTodo: PropTypes.func.isRequired,
-    todos: PropTypes.object.isRequired,
-    filter: PropTypes.object.isRequired
+    todos: PropTypes.object.isRequired
   };
 
   render() {
-    const { deleteTodo, todos, toggleTodoCompleted, filter } = this.props;
+    const { deleteTodo, todos, toggleTodoCompleted } = this.props;
 
     if (!todos.size) {
       return <p><FormattedMessage {...todosMessages.empty} /></p>;
     }
 
-    var selectedFilter = filter.get('selectedFilter');
+    var selectedFilter = todos.get('selectedFilter')? todos.get('selectedFilter') : "";
 
-    const list = todos.toList().sortBy(item => item.createdAt).reverse().filter(item => selectedFilter === null? item : item.status === selectedFilter);
-
-
+    const list = todos.toList().sortBy(item => item.createdAt).reverse().filter(item => selectedFilter === ""? item : item.status === selectedFilter);
 
     return (
       <ol className="todos">
         {
           list.map(todo =>
           {
-            if (todo.status !== 'delete' || selectedFilter === 'delete'  || selectedFilter === null)
+            if (todo.status !== 'delete' || selectedFilter === 'delete'  || selectedFilter === "")
             {
               return (
                 <Todo
@@ -55,6 +52,5 @@ export class Todos extends Component {
 }
 
 export default connect(state => ({
-  todos: state.todos.map,
-  filter: state.filter.map
+  todos: state.todos.map
 }), { deleteTodo, toggleTodoCompleted })(Todos);
