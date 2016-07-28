@@ -6,11 +6,11 @@ import intl from './intl/reducer';
 import todos from './todos/reducer';
 import users from './users/reducer';
 import { SIGN_OUT } from './auth/actions';
-import { combineReducers } from 'redux';
-import { fieldsReducer as fields } from './lib/redux-fields';
+import { combineReducers, createStore } from 'redux';
 import { firebaseReducer as firebase } from './lib/redux-firebase';
 import { routerReducer as routing } from 'react-router-redux';
 import { updateStateOnStorageLoad } from './configureStorage';
+import {reducer as formReducer} from 'redux-form';
 
 const resetStateOnSignOut = (reducer, initialState) => (state, action) => {
   // Reset app state on sign out, stackoverflow.com/q/35622588/233902.
@@ -34,12 +34,12 @@ export default function configureReducer(initialState, platformReducers) {
     auth,
     config,
     device,
-    fields,
     firebase,
     intl,
     routing,
     todos,
-    users
+    users,
+    form: formReducer
   });
 
   // The power of higher-order reducers, http://slides.com/omnidan/hor
