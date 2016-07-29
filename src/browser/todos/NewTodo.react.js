@@ -10,8 +10,7 @@ import { reduxForm } from 'redux-form';
 class NewTodo extends Component {
 
   static propTypes = {
-    addTodo: PropTypes.func.isRequired,
-    fields: PropTypes.object.isRequired
+    addTodo: PropTypes.func.isRequired
   };
 
   constructor() {
@@ -21,20 +20,20 @@ class NewTodo extends Component {
 
   onInputKeyDown(e) {
     if (e.key !== 'Enter') return;
-    const { addTodo, fields } = this.props;
-    if (!fields.title.value.trim()) return;
-    addTodo(fields.title.value);
-    resetForm();
+    const { addTodo, fields: {title} } = this.props;
+    if (!title.value.trim()) return;
+    addTodo(title.value);
+    newTodo.restForm();
   }
 
   render() {
-    const { fields } = this.props;
+    const { fields: {title} } = this.props;
 
     return (
       <FormattedMessage {...newTodoMessages.placeholder}>
         {message =>
           <input
-            {...fields.title}
+            {...title}
             autoFocus
             className="new-todo"
             maxLength={100}
@@ -50,7 +49,6 @@ class NewTodo extends Component {
 
 NewTodo = reduxForm({
   form: 'newTodo',
-  path: 'newTodo',
   fields: ['title']
 })(NewTodo);
 

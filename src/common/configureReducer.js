@@ -10,7 +10,7 @@ import { combineReducers, createStore } from 'redux';
 import { firebaseReducer as firebase } from './lib/redux-firebase';
 import { routerReducer as routing } from 'react-router-redux';
 import { updateStateOnStorageLoad } from './configureStorage';
-import {reducer as formReducer} from 'redux-form';
+import { reducer as formReducer } from 'redux-form';
 
 const resetStateOnSignOut = (reducer, initialState) => (state, action) => {
   // Reset app state on sign out, stackoverflow.com/q/35622588/233902.
