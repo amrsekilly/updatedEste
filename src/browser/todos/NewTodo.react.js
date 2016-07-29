@@ -10,7 +10,9 @@ import { reduxForm } from 'redux-form';
 class NewTodo extends Component {
 
   static propTypes = {
-    addTodo: PropTypes.func.isRequired
+    addTodo: PropTypes.func.isRequired,
+    fields: PropTypes.object.isRequired,
+    resetForm: PropTypes.func.isRequired
   };
 
   constructor() {
@@ -18,12 +20,13 @@ class NewTodo extends Component {
     this.onInputKeyDown = this.onInputKeyDown.bind(this);
   }
 
+
   onInputKeyDown(e) {
     if (e.key !== 'Enter') return;
-    const { addTodo, fields: {title} } = this.props;
+    const { addTodo, fields: {title}, resetForm } = this.props;
     if (!title.value.trim()) return;
     addTodo(title.value);
-    newTodo.restForm();
+    resetForm();
   }
 
   render() {
