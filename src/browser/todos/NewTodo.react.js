@@ -53,6 +53,9 @@ class NewTodo extends Component {
 NewTodo = reduxForm({
   form: 'newTodo',
   fields: ['title']
-})(NewTodo);
+},
+null,
+{ addTodo }
+)(NewTodo);
 
-export default connect(null, { addTodo })(NewTodo);
+export default NewTodo;
