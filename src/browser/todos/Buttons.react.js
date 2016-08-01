@@ -5,6 +5,7 @@ import buttonsMessages from '../../common/todos/buttonsMessages';
 import { FormattedMessage } from 'react-intl';
 import { addHundredTodos, clearAllTodos } from '../../common/todos/actions';
 import { connect } from 'react-redux';
+import { Button } from 'react-bootstrap';
 
 class Buttons extends Component {
 
@@ -19,13 +20,15 @@ class Buttons extends Component {
 
     return (
       <div className="buttons">
-        <button
+        <Button
           disabled={todos.size === 0}
+          bsStyle="warning"
           onClick={clearAllTodos}
-        ><FormattedMessage {...buttonsMessages.clearAll} /></button>
-        <button
+        ><FormattedMessage {...buttonsMessages.clearAll} /></Button>
+        <Button
           onClick={addHundredTodos}
-        ><FormattedMessage {...buttonsMessages.add100} /></button>
+          bsStyle="success"
+        ><FormattedMessage {...buttonsMessages.add100} /></Button>
       </div>
     );
   }

@@ -38,7 +38,7 @@ export default class Todo extends Component {
           onClick={this.onTitleClick}
         >{todo.title}</span>
         <span
-          className="button"
+          className="button btn btn-xs btn-danger"
           onClick={this.onButtonClick}
         >x</span>
       </li>
