@@ -47,7 +47,9 @@ class App extends Component {
             ...favicon.meta
           ]}
           link={[
-            ...favicon.link
+            ...favicon.link,
+            {"rel": "stylesheet", "href": "https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"},
+            {"rel": "stylesheet", "href": "https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css"}
           ]}
         />
         {/* Pass location to ensure header active links are updated. */}

@@ -78,6 +78,7 @@
     "raven-js": "^3.0.3",
     "react": "15.2.1",
     "react-addons-test-utils": "15.2.1",
+    "react-bootstrap": "^0.30.0",
     "react-dom": "15.2.1",
     "react-gravatar": "^2.4.4",
     "react-helmet": "^3.0.0",
